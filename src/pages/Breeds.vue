@@ -52,6 +52,9 @@ export default {
   mounted() {
     this.initObserver();
   },
+  beforeDestroy() {
+    this.observer.disconnect();
+  },
   methods: {
     initObserver() {
       this.observer = new IntersectionObserver(this.observerCallback, { threshold: 0.1 });
